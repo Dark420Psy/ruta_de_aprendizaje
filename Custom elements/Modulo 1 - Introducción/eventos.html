@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Mi primer elemento personalizado</title>
+</head>
+<body>
+    <custom-button>
+        <h1>
+            Extendido de una interface generica HTMLElement 
+        </h1>
+    </custom-button>
+    <script>
+        //Extendiendo de una interface generica
+        class CustomButton extends HTMLElement{
+            constructor() {
+                super();
+                this.addEventListener('click', 
+                function(){
+                    alert('HTMLElement = interfaz generica')
+                });
+            };
+        }
+        window.customElements.define('custom-button', CustomButton);
+    </script>
+
+    <!--Así se utiliza dentro del html-->
+    <button is="custom-button2">
+        <h1>
+            Extendido de una interface generica HTMLElement 
+        </h1>
+    </button>   
+    <script>
+        //Extendiendo de una interface generica
+        class CustomButton2 extends HTMLButtonElement{
+            constructor() {
+                super();
+                this.addEventListener('click', 
+                function(){
+                    alert('HTMLButtonElement = interfaz específica')
+                });
+            };
+        }
+        window.customElements.define('custom-button2', CustomButton2, 
+        {extends:'button'});
+    </script>
+</body>
+</html>
