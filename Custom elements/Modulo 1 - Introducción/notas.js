@@ -143,13 +143,38 @@ modo abierto para poder acceder desde afuera
 Al shadowroot le adjunto una copia del contenido
 del template
 */
+/*
+Recomentado si se va a interactuar con otras
+partes del shadowroot
+*/
 window.customElements.define('mi-saludo', class extends HTMLElement{
     constructor(){
         super();
         let content = document.querySelector('#template').content;
 
-        let shadowRoot = this.attachShadow(document.importNode(content,true))
+        let shadowRoot = this.attachShadow({mode: 'open'});
+
+        shadowRoot.appendChild(document.importNode(content,true));
                 
     }
 });
 
+/*
+Otra forma de definirlo es mediante el elemento
+que se está generando
+*/
+
+//en vez de guardarlo en una variable local
+/*
+Esto sirve si solo estamos creando definición 
+*/ 
+window.customElements.define('mi-saludo', class extends HTMLElement{
+    constructor(){
+        super();
+        let content = document.querySelector('#template').content;
+        
+        this.attachShadow({mode: 'open'});
+
+        this.shadowRoot.appendChild(document.importNode(content, true));
+    }
+});

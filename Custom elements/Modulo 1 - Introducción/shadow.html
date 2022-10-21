@@ -11,6 +11,13 @@
             Shadow DOM
         </h1>
     </template>
+
+    <template id="template2">
+        <h1>
+            Shadow DOM, sólo definicion
+        </h1>
+    </template>
+
     <script>
         window.customElements.define('shadow-dom', 
         class extends HTMLElement{
@@ -34,7 +41,21 @@
             }
         });
     </script>
+
+    <script>
+        window.customElements.define('shadow-dom2', class extends HTMLElement{
+            constructor(){
+                super();
+                let content = document.querySelector('#template2').content;
+                
+                this.attachShadow({mode: 'open'});
+
+                this.shadowRoot.appendChild(document.importNode(content, true));
+            }
+        });
+    </script>
     <shadow-dom></shadow-dom>
+    <shadow-dom2></shadow-dom2>
     
 </body>
 </html>
