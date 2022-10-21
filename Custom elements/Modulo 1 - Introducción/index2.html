@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <template id="template">
+            <h1>
+                Hola mundo
+            </h1>
+        </template>
+        <script>
+            window.customElements.define('clase-anonima', class extends HTMLElement{
+                constructor(){
+                    super();
+
+                    let content = document.querySelector("#template").content;
+
+                    this.attachShadow({mode: 'open'});
+
+                    this.shadowRoot.appendChild(document.importNode(content, true));
+                }
+            });
+             
+        </script>
+        <clase-anonima>
+            Esto es una clase anonima
+        </clase-anonima>
+    
+    </body>
+</html>

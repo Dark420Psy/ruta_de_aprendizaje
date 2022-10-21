@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">/
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h1>Me encuentro en el arbol del DOM por
+            lo que me puedes ver
+        </h1>
+    </div>
+
+    <template id="template">
+        <h1>
+            Oye, no me invitaste al DOM, porque?
+        </h1>
+    </template>
+
+    <script>
+        class CustomButton extends HTMLElement {//1. Clase
+            constructor() {//3. Constructor + super
+                super();
+                //4. método
+                this.addEventListener('click',
+                    function () {//5. funcionalidad 
+                        alert('pulsaste click')
+                    });
+            };
+        }
+        //2. nombre etiqueta
+        window.customElements.define('custom-button', CustomButton);
+    </script>
+    <custom-button>
+        <h1>
+            dame click
+        </h1>
+    </custom-button>
+
+    <div>
+        <h1>
+            No te conozco
+        </h1>
+    </div>
+
+</body>
+
+</html>
