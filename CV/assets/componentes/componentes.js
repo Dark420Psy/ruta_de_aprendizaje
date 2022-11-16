@@ -209,6 +209,10 @@ window.customElements.define('mi-habilidad', class extends HTMLElement {
         </ul>
         `;
         this.shadowRoot.innerHTML = template;
+
+        this.addEventListener('click', () => {
+            alert('Evento');
+        });
     }
 });
 
