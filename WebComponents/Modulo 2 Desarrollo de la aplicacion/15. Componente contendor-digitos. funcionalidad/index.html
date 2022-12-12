@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--Importar como modulo-->
+    <!--La ventaja es que el componente queda encapsulado en un modulo-->
+    <!--El código encapsulado te permite repetir variables-->
+    <script type="module" src="./main.js"></script>
+</head>
+<body>
+    <wc-contenedor-digitos>
+        <wc-digito id="decenasHoras" numero="0"></wc-digito>
+        <wc-digito id="horas" numero="0"></wc-digito>
+        
+        <wc-punto></wc-punto><!--:-->
+
+        <wc-digito id="decenasMinutos" numero="0"></wc-digito>
+        <wc-digito id="minutos"  numero="0"></wc-digito>
+        
+        <wc-punto></wc-punto>
+
+        <wc-digito  id="decenasSegundos" numero="0"></wc-digito>
+        <wc-digito id="segundos"  numero="0"></wc-digito>
+       
+        <wc-punto></wc-punto>
+
+        <wc-digito id="decenasCentesimas"  numero="0"></wc-digito>
+        <wc-digito id="centesimas"  numero="0"></wc-digito>
+    </wc-contenedor-digitos>
+</body>
+</html>
